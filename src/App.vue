@@ -1,14 +1,16 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <StyleBind msg="Welcome to Your Vue.js App" />
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import StyleBind from "./components/StyleBind.vue";
+
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    StyleBind
   },
 };
 </script>
