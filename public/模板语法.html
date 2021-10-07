@@ -1,36 +1,76 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!-- 引入 CDN 资源 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <span>Message: {{ msg }}</span>
-      <span v-once>这个将不会改变: {{ msg }}</span>
-      <p v-html="rawHtml">此处文字不显示</p>
-    </div>
-    <script>
-      const vm = new Vue({
-        el: "#app",
-        data() {
-          return {
-            msg: 111,
-            rawHtml: "<h3>rawHtml</h3>",
-          };
-        },
-      });
-      // 绑定数据对象上的msg发生改变, 插值处的内容就会更新
-      setTimeout(() => {
-        vm.$data.msg = 222;
-      }, 1000);
 
-      // v-html 输出真实的HTML
-      // v-bind
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- 引入 CDN 资源 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    #name,
+    #eman {
+      color: gold
+    }
+  </style>
 
-    </script>
-  </body>
+</head>
+
+<body>
+  <div id="app">
+    <span>Message: {{ msg }}</span>
+    <span v-once>这个将不会改变: {{ msg }}</span>
+    <p v-html="rawHtml">此处文字不显示</p>
+    <p v-bind:id="dynamicId">动态id</p>
+    <p v-bind:id="dynamicId.split('').reverse('').join('')">动态id</p>
+    <!-- <p v-bind:[id]="dynamicId">动态id</p> -->
+    <!-- 不能使用语句和流程控制 -->
+    <p v-if="seen">v-if</p>
+
+    <form v-on:submit.prevent="submit()">
+      <input placeholder="真实姓名" maxlength="15" type="text" v-model="address.name" />
+      <input placeholder="手机号" maxlength="13" type="tel" v-model="address.tel" />
+      <input placeholder="省 市 区" type="text" v-model="address.pcd" />
+      <input placeholder="详细地址" maxlength="120" type="text" v-model="address.site" />
+      <button type="submit" class="ui-button"><span>保存地址</span></button>
+    </form>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data() {
+        return {
+          msg: 111,
+          rawHtml: "<h3>rawHtml</h3>",
+          dynamicId: 'name',
+          seen: true,
+          address: {
+            name: '',
+            tel: '',
+            pcd: '',
+            site: ''
+          }
+        };
+      },
+      methods: {
+        submit() {
+          console.log(this.address)
+        }
+      },
+    });
+    // 绑定数据对象上的msg发生改变, 插值处的内容就会更新
+    setTimeout(() => {
+      vm.$data.msg = 222;
+    }, 1000);
+
+    // v-html 输出真实的HTML
+    // 使用v-bind 作用在html的attribute上面, 可以用方括号传递参数
+    // v-if 判断dom是否显示
+    // 修饰符 .prevent 相当于触发 event.preventDefatul()
+
+
+
+  </script>
+</body>
+
 </html>

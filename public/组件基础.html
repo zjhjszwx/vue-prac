@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- 引入 CDN 资源 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <button-counter title="title11">
+    </button-counter>
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <button-counter v-on:enlarge-text="postFontSize += $event" v-for="(post, index) in posts" v-bind:key="index"
+        v-bind:title="post.title">
+    </div>
+
+    </button-counter>
+
+    <custom-input v-model="searchText"></custom-input>
+
+    <alert-box>
+      xxxx
+    </alert-box>
+  </div>
+
+  <div id="dynamic-component-demo" class="demo">
+    <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['tab-button', { active: currentTab === tab }]"
+      v-on:click="currentTab = tab">
+      {{ tab }}
+    </button>
+
+    <component v-bind:is="currentTabComponent" class="tab"></component>
+  </div>
+
+  <script>
+
+    Vue.component('button-counter', {
+      data: function () { // 组件的data是一个函数
+        return {
+          count: 0
+        }
+      },
+      props: ['title'],
+      template: `<div>
+        <button @click="$emit('enlarge-text', 0.2)">+</button>
+        <button v-on:click="count++">
+          {{title}}You clicked me {{ count }} times.
+        </button>
+      </div>
+      `
+
+    })
+
+    // 自定义组件
+    Vue.component('custom-input', {
+      props: ['value'],
+      template: `<input v-bind:value="value" v-on:input="$emit('input', $event.target.value)"/>`
+    })
+
+    Vue.component('alert-box', {
+      template: `
+        <div class="demo-alert-box">
+          <strong>Error!</strong>
+          <slot></slot>
+        </div>
+      `
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        posts: [
+          { id: 1, title: 'My journey with Vue' },
+          { id: 2, title: 'Blogging with Vue' },
+          { id: 3, title: 'Why Vue is so fun' }
+        ],
+        postFontSize: 1,
+        searchText: 10
+      }
+    })
+
+    // 动态组件
+    Vue.component("tab-home", {
+      template: "<div>Home component</div>"
+    });
+    Vue.component("tab-posts", {
+      template: "<div>Posts component</div>"
+    });
+    Vue.component("tab-archive", {
+      template: "<div>Archive component</div>"
+    });
+
+    new Vue({
+      el: "#dynamic-component-demo",
+      data: {
+        currentTab: "Home",
+        tabs: ["Home", "Posts", "Archive"]
+      },
+      computed: {
+        currentTabComponent: function () {
+          return "tab-" + this.currentTab.toLowerCase();
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

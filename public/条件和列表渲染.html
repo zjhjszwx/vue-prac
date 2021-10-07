@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- 引入 CDN 资源 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <template v-if="seen">
+      <h1>Title</h1>
+      <p>Paragraph 1</p>
+    </template>
+    <div v-else>
+      Now you dont't
+    </div>
+
+    <div v-if="type === 'a'">
+      A
+    </div>
+    <div v-if="type === 'b'">
+      B
+    </div>
+
+    <!-- v-for -->
+    <ul>
+      <li v-for="(item, index) in items" :key="item.message">{{item.message}}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(value, name, index) in object">{{value}}</li>
+    </ul>
+
+    <ul v-for="(set, index) in sets" :key="index">
+      <li v-for="(n, index) in even(set)" :key="index">{{n}}</li>
+    </ul>
+
+    <ul>
+      <template v-for="(item, index) in items">
+        <div>
+          <li>{{ item.message }}</li>
+          <li class="divider" role="presentation"></li>
+        </div>
+      </template>
+    </ul>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        seen: false,
+        type: 'a',
+        items: [
+          { message: 'Foo' },
+          { message: 'Bar' }
+        ],
+        object: {
+          title: 'How to do lists in Vue',
+          author: 'Jane Doe',
+          publishedAt: '2016-04-10'
+        },
+        sets: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+      },
+      methods: {
+        even: function (numbers) {
+          return numbers.filter((number) => {
+            return number % 2 === 0
+          })
+        }
+      }
+    })
+    // v-else 必须跟在带 v-if 和 v-else-if的元素后面
+    // 用key来管理判断元素是否复用，和react类似
+    // v-show 元素只是单纯切换元素 css property display
+
+    // 替换数组 - 如果某些数组的方法不改变原数组，就替换数组
+    vm.items = vm.items.filter(function (item) {
+      return item.message.match(/Foo/)
+    })
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <!-- 引入 CDN 资源 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="counter+=1">add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p>
+    <button v-on:click="say(counter,'what')">Say what</button>
+    <a v-on:click.stop.prevent="doThat"></a>
+
+    <div>
+      <input v-model="message" placeholder="edit me">
+      <p>Message is: {{ message }}</p>
+    </div>
+    <div>
+      <input type="checkbox" id="checkbox" v-model="checked">
+      <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <input type="number" v-model.number="age">
+  </div>
+  <script>
+    var example1 = new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        message: '',
+        checked: true,
+        age: 10
+      },
+      methods: {
+        say: function (counter, message) {
+          alert(counter + message)
+        }
+      },
+    })
+
+  </script>
+</body>
+
+</html>
