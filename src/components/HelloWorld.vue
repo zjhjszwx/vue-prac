@@ -14,7 +14,7 @@
   </p>
   <p v-for="(value, name) in object" :key="value">{{ name }}:{{ value }}</p>
 
-  <p>Computed reversed message: "{{ reversedMessage() }}"</p>
+  <p>Computed reversed message123: "{{ reversedMessage() }}"</p>
 </template>
 <script>
 export default {
