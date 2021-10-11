@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    123
+    <cn-header></cn-header>
+    <router-view name="main"></router-view>
   </div>
 </template>
 
 <script>
-
+import cnHeader from './cnode/Header'
 
 export default {
   name: 'app',
- 
+  components: {
+    cnHeader
+  }
 }
 </script>
 
