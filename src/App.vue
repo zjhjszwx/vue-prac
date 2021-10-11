@@ -1,25 +1,30 @@
 <template>
-  <StyleBind msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    123
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import StyleBind from "./components/StyleBind.vue";
 
 
 export default {
-  name: "App",
-  components: {
-    StyleBind
-  },
-};
+  name: 'app',
+ 
+}
 </script>
 
 <style>
+	html {
+    background-color: #DDDDDD;
+	}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+    font-size: 20px;
+}
+body,div,span,a,p,ul,li {
+	margin: 0;
+	padding: 0;
 }
 </style>
