@@ -44,26 +44,28 @@
 	    }
 	  },
 	  methods: {
-	  	getData(){
-			this.$http({
-	            url: `https://cnodejs.org/api/v1/user/${this.$route.params.name}`,   //ES6语法，引入组件内的 route object（路由信息对象） 
-	            method: 'get',
-	          })
-			  .then( (response) => {
-			  	if( response.data.success === true ){
-			  		this.userinfo = response.data.data;
-			  		this.loading = false
-			  	}
-          console.log(this.userinfo);
-			  })
-			  .catch(function (error) {
-			  	console.log(error);
-			  });
-		  	}
+	  	// getData(){
+			// this.$http({
+	    //         url: `https://cnodejs.org/api/v1/user/${this.$route.params.name}`,   //ES6语法，引入组件内的 route object（路由信息对象） 
+	    //         method: 'get',
+	    //       })
+			//   .then( (response) => {
+			//   	if( response.data.success === true ){
+			//   		this.userinfo = response.data.data;
+			//   		this.loading = false
+			//   	}
+      //     console.log(this.userinfo);
+			//   })
+			//   .catch(function (error) {
+			//   	console.log(error);
+			//   });
+		  // 	}
 		 },
 	    beforeMount() {
 	    	// this.loading = true
 	      // this.getData();
+				this.userinfo = this.$store.state.userInfo.info
+		
 	    }
 	}
 </script>

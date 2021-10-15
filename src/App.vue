@@ -1,33 +1,37 @@
 <template>
   <div id="app">
-    <cn-header></cn-header>
     <router-view name="main"></router-view>
   </div>
 </template>
 
 <script>
-import cnHeader from './cnode/Header'
+import cnHeader from "./cnode/Header";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     cnHeader
   }
-}
+};
 </script>
 
 <style>
-	html {
-    background-color: #DDDDDD;
-	}
+html {
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    font-size: 20px;
+  font-size: 20px;
 }
-body,div,span,a,p,ul,li {
-	margin: 0;
-	padding: 0;
+body,
+div,
+span,
+a,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
 </style>
