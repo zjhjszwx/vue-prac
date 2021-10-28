@@ -1,22 +1,16 @@
 <template lang="">
   <div>
-    <bar-chart-component
-      :x="firstBarChart.xAxis"
-      :legend="firstBarChart.legend"
-      :title="firstBarChart.title"
-      :series="firstBarChart.series"
-      :height="firstBarChart.height"
-      :width="firstBarChart.width"
-      :id="firstBarChart.id"
-    ></bar-chart-component>
+    <tabs-comp></tabs-comp>
   </div>
 </template>
 <script>
-import BarChartComponent from './bar'
+import BarChartComponent from './bar';
+import TabsComp from './tabs'
 export default {
   name: 'LargeScreenZongHeRight',
   components: {
     BarChartComponent,
+    TabsComp
   },
   data() {
     return {

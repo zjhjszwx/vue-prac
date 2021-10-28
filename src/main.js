@@ -6,6 +6,9 @@ import router from './router'
 import axios from 'axios';
 import store from './store';
 import './permission' // 权限控制
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI)
 Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false
