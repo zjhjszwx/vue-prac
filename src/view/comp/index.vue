@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <my-form></my-form>
+    <my-form ref="form"></my-form>
     <my-button></my-button>
   </div>
 </template>
@@ -11,7 +11,10 @@ export default {
   components: {
     myForm,
     myButton
-  }
+  },
+  methods: {
+   
+  },
 }
 </script>
 <style lang="">

@@ -26,10 +26,7 @@ export default {
     }
   },
   methods: {
-    setRules() {
-      this.$on("on-form-blur", this.onFieldBlur);
-      this.$on("on-form-change", this.onFieldChange);
-    },
+  
     handleInput(event) {
       const value = event.target.value;
       this.currentValue = value;
@@ -39,19 +36,8 @@ export default {
     handleBlur() {
       this.dispatch("iFormItem", "on-form-blur", this.currentValue);
     },
-    onFieldBlur() {
-      this.validate("blur");
-    },
-    onFieldChange() {
-      this.validate("change");
-    }
   },
-  mounted() {
-    if (this.prop) {
-      this.dispatch("iForm", "on-form-item-add", this);
-      this.setRules();
-    }
-  }
+
 };
 </script>
 <style lang=""></style>
