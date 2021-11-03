@@ -7,7 +7,7 @@
 </template>
 <script>
 import componentB from "./compB.vue";
-import { findComponentDownWard,findComponentsDownWard } from '../../../utils/assist'
+import { findComponentDownWard,findComponentsDownward } from '../../../utils/assist'
 
 export default {
   name: "componentA",
@@ -23,9 +23,7 @@ export default {
     }
   },
   mounted() {
-    const compB = findComponentsDownWard(this, 'componentB');
-    console.log(compB);
-
+    const compB = findComponentsDownward(this, 'componentB');
   },
 };
 </script>

@@ -1,14 +1,11 @@
 function findComponentUpward(context, componentName) {
   let parent = context.$parent
   let name = parent.$options.name
-  while (parent && !name || name !== componentName) {
-    parent = parent.$parent
-    if (parent) {
-      name = parent.$options.name
-    }
+  while (parent && (!name || [componentName].indexOf(name) < 0)) {
+    parent = parent.$parent;
+    if (parent) name = parent.$options.name;
   }
-
-  return parent
+  return parent;
 }
 
 
@@ -42,11 +39,10 @@ function findComponentDownWard(context, componentName) {
   }
   return children
 }
-
-function findComponentsDownWard(context, componentName) {
+function findComponentsDownward(context, componentName) {
   return context.$children.reduce((components, child) => {
     if (child.$options.name === componentName) components.push(child)
-    const findChild = findComponentDownWard(child, componentName)
+    const findChild = findComponentsDownward(child, componentName)
     return components.concat(findChild)
   }, [])
 }
@@ -65,6 +61,6 @@ export {
   findComponentUpward,
   findComponentsUpward,
   findComponentDownWard,
-  findComponentsDownWard,
+  findComponentsDownward,
   findBrotherComponents
 }

@@ -5,20 +5,16 @@
   </div>
 </template>
 <script>
-import myForm from './form/index';
-import myButton from './button/index';
-import compA from './findComp/compA'
+import myForm from "./form/index";
+import myButton from "./button/index";
+import compA from "./findComp/compA";
 export default {
   components: {
     myForm,
     myButton,
     compA
   },
-  methods: {
-   
-  },
-}
+  methods: {}
+};
 </script>
-<style lang="">
-  
-</style>
+<style lang=""></style>

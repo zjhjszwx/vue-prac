@@ -53,7 +53,7 @@ export default {
     getFilteredRule(trigger) {
       const rules = this.getRules();
       return rules.filter(
-        rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1
+        rule => rule && (!rule.trigger || rule.trigger.indexOf(trigger) !== -1)
       );
     },
     validate(trigger, callback) {
