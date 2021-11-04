@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <comp-a></comp-a>
+    <tree-comp></tree-comp>
     <my-form></my-form>
   </div>
 </template>
@@ -8,13 +8,26 @@
 import myForm from "./form/index";
 import myButton from "./button/index";
 import compA from "./findComp/compA";
+import recursionComp from "./tree/recursion";
+import dynamicComp from "./tree/dynamicComp/index";
+import TreeComp from './tree/index'
+
 export default {
   components: {
     myForm,
     myButton,
-    compA
+    compA,
+    recursionComp,
+    dynamicComp,
+    TreeComp
   },
-  methods: {}
+  methods: {
+    handleAlert() {
+      this.$Alert.info({
+        content: "我是提示框"
+      });
+    }
+  }
 };
 </script>
 <style lang=""></style>
