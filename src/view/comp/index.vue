@@ -1,7 +1,6 @@
 <template lang="">
   <div>
-    <tree-comp></tree-comp>
-    <my-form></my-form>
+    <test-comp></test-comp>
   </div>
 </template>
 <script>
@@ -11,6 +10,7 @@ import compA from "./findComp/compA";
 import recursionComp from "./tree/recursion";
 import dynamicComp from "./tree/dynamicComp/index";
 import TreeComp from './tree/index'
+import testComp from './test/a'
 
 export default {
   components: {
@@ -19,7 +19,8 @@ export default {
     compA,
     recursionComp,
     dynamicComp,
-    TreeComp
+    TreeComp,
+    testComp
   },
   methods: {
     handleAlert() {
