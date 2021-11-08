@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <test-comp></test-comp>
+    <tree-comp></tree-comp>
   </div>
 </template>
 <script>

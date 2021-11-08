@@ -4,7 +4,7 @@
       v-for="(item, index) in cloneData"
       :key="index"
       :data="item"
-      :show-checkbox="showCheckbox"
+      :showCheckbox="showCheckbox"
     >
     </tree-node>
   </div>
@@ -44,10 +44,12 @@ export default {
   },
   methods: {
     rebuildData() {
+      // 创建一个深拷贝对象, 防止破坏原来数据
       this.cloneData = deepCopy(this.data);
     },
     emitEvent(eventName, data) {
-      this.$emit(eventName, data, this.cloneData)
+      // 触发 父级的on-toggle-expand on-check-change事件
+      this.$emit(eventName, data)
     }
   }
 };

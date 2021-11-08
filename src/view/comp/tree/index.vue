@@ -2,7 +2,7 @@
   <div>
     <Tree
       :data="data"
-      show-checkbox
+      :showCheckbox="true"
       @on-toggle-expand="handleToggleExpand"
       @on-check-change="handleCheckChange"
     ></Tree>
