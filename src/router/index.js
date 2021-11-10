@@ -4,6 +4,7 @@ import PostList from '../cnode/PostList.vue'
 import UserInfo from '../cnode/UserInfo.vue'
 import Chart from '../view/echart/index'
 import Comp from '../view/comp/index'
+import Project from '../view/project/index'
 
 
 Vue.use(Router)
@@ -38,6 +39,13 @@ export default new Router({
       name: 'comp',
       components: {
         main: Comp
+      }
+    },
+    {
+      path: '/project',
+      name: 'project',
+      components: {
+        main: Project
       }
     }
   ]

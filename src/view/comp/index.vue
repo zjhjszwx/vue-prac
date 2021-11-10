@@ -1,6 +1,8 @@
 <template lang="">
   <div>
     <tree-comp></tree-comp>
+    <test-nexttick></test-nexttick>
+    <input-number></input-number>
   </div>
 </template>
 <script>
@@ -11,6 +13,9 @@ import recursionComp from "./tree/recursion";
 import dynamicComp from "./tree/dynamicComp/index";
 import TreeComp from './tree/index'
 import testComp from './test/a'
+import tableComp from './table/index'
+import testNexttick from './test/nextTick'
+import InputNumber from './inputNumber/index'
 
 export default {
   components: {
@@ -20,7 +25,10 @@ export default {
     recursionComp,
     dynamicComp,
     TreeComp,
-    testComp
+    testComp,
+    tableComp,
+    testNexttick,
+    InputNumber
   },
   methods: {
     handleAlert() {
