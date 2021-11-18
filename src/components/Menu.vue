@@ -67,9 +67,9 @@
 // routerName 为对应的路由的路由名称
 const menus = [
   {
-    text: "服务管理", // 父菜单名字
+    text: "表格", // 父菜单名字
     icon: "el-icon-setting", // 父菜单图标
-    subMenus: [{ text: "服务信息", routerName: "ProductList" }] // 子菜单列表
+    subMenus: [{ text: "树形表格", routerName: "ProductList" }] // 子菜单列表
   },
   {
     text: "产品管理",

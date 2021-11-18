@@ -9,6 +9,8 @@ import './permission' // 权限控制
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Alert from './view/comp/alert/alert.js'
+import './styles/index.scss'
+
 Vue.use(ElementUI)
 Vue.prototype.$http = axios;
 Vue.prototype.$Alert = Alert;
