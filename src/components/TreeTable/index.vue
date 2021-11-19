@@ -47,6 +47,7 @@
         :item="child"
         v-if="column.children"
       />
+      
       <template slot-scope="scope">
         <span
           v-if="index === 0"

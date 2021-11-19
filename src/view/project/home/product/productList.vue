@@ -77,7 +77,6 @@ export default {
         {
           text: "字典编码",
           value: "code",
-          type: "button"
         },
         {
           text: "操作",
@@ -114,7 +113,7 @@ export default {
         temp.push({
           class: "iconxinzeng",
           value: "添加",
-          click: this.addChild
+          click: this.addDic
         });
       }
       temp.push({ class: "iconxiugai", value: "修改", click: this.updateDic });
