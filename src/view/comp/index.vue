@@ -1,8 +1,10 @@
 <template lang="">
   <div>
-    <tree-comp></tree-comp>
-    <test-nexttick></test-nexttick>
-    <input-number></input-number>
+    <Breadcrumb>
+        <BreadcrumbItem to="/">Home</BreadcrumbItem>
+        <BreadcrumbItem to="/product/list">Components</BreadcrumbItem>
+        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
+    </Breadcrumb>
   </div>
 </template>
 <script>
@@ -16,6 +18,8 @@ import testComp from './test/a'
 import tableComp from './table/index'
 import testNexttick from './test/nextTick'
 import InputNumber from './inputNumber/index'
+import Breadcrumb from './breadcrumb/index'
+const BreadcrumbItem = Breadcrumb.Item;
 
 export default {
   components: {
@@ -28,7 +32,9 @@ export default {
     testComp,
     tableComp,
     testNexttick,
-    InputNumber
+    InputNumber,
+    Breadcrumb,
+    BreadcrumbItem
   },
   methods: {
     handleAlert() {

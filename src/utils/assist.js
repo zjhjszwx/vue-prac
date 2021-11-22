@@ -1,3 +1,4 @@
+// 找到对应名称的父组件
 function findComponentUpward(context, componentName) {
   let parent = context.$parent
   let name = parent.$options.name
@@ -8,7 +9,7 @@ function findComponentUpward(context, componentName) {
   return parent;
 }
 
-
+// 找到对应名称的父组件(多个)
 function findComponentsUpward(context, componentName) {
   let parents = []
   const parent = context.$parent
@@ -56,6 +57,7 @@ function findBrotherComponents(context, componentName, exceptMe = true) {
   return res;
 }
 
+// 判断对象类型
 function typeOf(obj) {
   const toString = Object.prototype.toString;
   const map = {
@@ -97,6 +99,15 @@ function deepCopy(data) {
   return o;
 }
 
+// 判断参数是否是其中之一
+function oneOf(value, validList) {
+  for (let i = 0; i < validList.length; i++) {
+    if (validList[i] === value) {
+      return true
+    }
+  }
+  return false
+}
 
 export {
   findComponentUpward,
@@ -105,5 +116,6 @@ export {
   findComponentsDownward,
   findBrotherComponents,
   deepCopy,
-  typeOf
+  typeOf,
+  oneOf
 }

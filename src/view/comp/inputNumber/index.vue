@@ -1,5 +1,7 @@
 <template>
-  <InputNumber :number="value" @input="handleChange"  />
+  <InputNumber v-model="value" />
+  <!--  <InputNumber :number="value" @input="handleChange"  /> -->
+
 </template>
 <script>
   import InputNumber from './inputNumber';
