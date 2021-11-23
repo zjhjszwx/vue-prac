@@ -1,10 +1,16 @@
 <template lang="">
   <div>
-    <Breadcrumb>
+    <Breadcrumb separator="<b class='demo-breadcrumb-separator'>=></b>">
         <BreadcrumbItem to="/">Home</BreadcrumbItem>
         <BreadcrumbItem to="/product/list">Components</BreadcrumbItem>
         <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
     </Breadcrumb>
+    <button @click="visible = !visible">drawer btn</button>
+      <Drawer v-model="visible">
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
   </div>
 </template>
 <script>
@@ -20,6 +26,7 @@ import testNexttick from './test/nextTick'
 import InputNumber from './inputNumber/index'
 import Breadcrumb from './breadcrumb/index'
 const BreadcrumbItem = Breadcrumb.Item;
+import Drawer from './drawer/drawer'
 
 export default {
   components: {
@@ -34,7 +41,13 @@ export default {
     testNexttick,
     InputNumber,
     Breadcrumb,
-    BreadcrumbItem
+    BreadcrumbItem,
+    Drawer
+  },
+  data() {
+    return {
+      visible: false
+    }
   },
   methods: {
     handleAlert() {
