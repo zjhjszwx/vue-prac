@@ -1,16 +1,8 @@
 <template lang="">
   <div>
-    <Breadcrumb separator="<b class='demo-breadcrumb-separator'>=></b>">
-        <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to="/product/list">Components</BreadcrumbItem>
-        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-    </Breadcrumb>
-    <button @click="visible = !visible">drawer btn</button>
-      <Drawer v-model="visible">
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
+    <Avatar>USER</Avatar>
+    <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
+    <Avatar style="color: #f56a00;background-color: #fde3cf">U</Avatar>
   </div>
 </template>
 <script>
@@ -27,6 +19,7 @@ import InputNumber from './inputNumber/index'
 import Breadcrumb from './breadcrumb/index'
 const BreadcrumbItem = Breadcrumb.Item;
 import Drawer from './drawer/drawer'
+import Avatar from './avatar'
 
 export default {
   components: {
@@ -42,7 +35,8 @@ export default {
     InputNumber,
     Breadcrumb,
     BreadcrumbItem,
-    Drawer
+    Drawer,
+    Avatar
   },
   data() {
     return {
