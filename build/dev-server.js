@@ -1,10 +1,11 @@
 require('./check-versions')()
-
+// 开发环境入口文件
 var config = require('../config')
+// 使用config.dev.env.NODE_ENV作为当前的环境
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
-
+//
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
