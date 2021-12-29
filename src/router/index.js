@@ -4,6 +4,7 @@ import PostList from '../cnode/PostList.vue'
 import UserInfo from '../cnode/UserInfo.vue'
 import Chart from '../view/echart/index'
 import Comp from '../view/comp/index'
+import Avue from '../view/Avue/index'
 import Project from '../view/project/index'
 import Home from '../view/project/home/home.vue'
 import Product from '../view/project/home/product/product'
@@ -44,6 +45,13 @@ export default new Router({
       name: 'comp',
       components: {
         main: Comp
+      }
+    },
+    {
+      path: '/avue',
+      name: 'avue',
+      components: {
+        main: Avue
       }
     },
     {
