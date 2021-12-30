@@ -1,17 +1,17 @@
 <template lang="">
   <div>
-    <el-row :span="24">
+    <!-- <el-row :span="24">
       <el-col :span="6">
         值:{{form}}<br/>
         <avue-input v-model="form" placeholder="请输入内容" ></avue-input>
       </el-col>
-    </el-row>
+    </el-row> -->
     <a-table></a-table>
   </div>
 </template>
 <script>
 import AForm from './form'
-import ATable from './table.vue'
+import ATable from './table2.vue'
 export default {
   components: {
     AForm,
