@@ -37,8 +37,8 @@
       :width="column.width"
       v-if="
         column.type !== 'button' &&
-          column.type !== 'iconButton' &&
-          columns.length > 0
+        column.type !== 'iconButton' &&
+        columns.length > 0
       "
     >
       <my-tree-column
@@ -47,7 +47,7 @@
         :item="child"
         v-if="column.children"
       />
-      
+
       <template slot-scope="scope">
         <span
           v-if="index === 0"
@@ -96,7 +96,6 @@
         </el-button>
       </template>
     </el-table-column> -->
-    
 
     <!--操作-->
     <el-table-column
@@ -123,12 +122,13 @@
               class="projectColor"
               style="
                 position: absolute;
-                margin-left: -4px;
+                margin-left: -5px;
                 font-weight: 700;
                 opacity: 0.5;
               "
               v-if="num < column.list(scope.row).length - 1"
-              >|</span>
+              >|</span
+            >
           </span>
         </div>
       </template>
@@ -148,44 +148,44 @@ export default {
   //   buttonPrivilege
   // },
   components: {
-    myTreeColumn
+    myTreeColumn,
   },
   props: {
     maxHeight: {
       type: String || Number,
       default: () => {
         return;
-      }
+      },
     },
     highlightCurrentRow: {
       type: Boolean,
-      default: false
+      default: false,
     },
     data: {
       type: [Array, Object],
-      required: true
+      required: true,
     },
     columns: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     evalFunc: {
       type: Function,
-      default: function() {}
+      default: function () {},
     },
     evalArgs: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     expandAll: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    listLoading: { type: Boolean, default: false }
+    listLoading: { type: Boolean, default: false },
   },
   computed: {
     // 格式化数据源
-    formatData: function() {
+    formatData: function () {
       let tmp;
       if (!Array.isArray(this.data)) {
         tmp = [this.data];
@@ -204,10 +204,10 @@ export default {
       // debugger
 
       return func.apply(null, args);
-    }
+    },
   },
   methods: {
-    showRow: function(row) {
+    showRow: function (row) {
       const show = row.row.parent
         ? row.row.parent._expanded && row.row.parent._show
         : true;
@@ -215,7 +215,7 @@ export default {
       return show
         ? {
             animation: "treeTableShow 1s",
-            "-webkit-animation": "treeTableShow 1s"
+            "-webkit-animation": "treeTableShow 1s",
           }
         : { visibility: "collapse" };
     },
@@ -232,7 +232,7 @@ export default {
       return itemArr;
     },
     // 切换下级是否展开
-    toggleExpanded: function(trIndex) {
+    toggleExpanded: function (trIndex) {
       const record = this.formatData[trIndex];
       record._expanded = !record._expanded;
     },
@@ -257,11 +257,11 @@ export default {
     },
     handleRowClick(row, column, event) {
       this.$emit("row-click", row, column, event);
-    }
+    },
   },
   mounted() {
     console.log("formatData==", this.formatData);
-  }
+  },
 };
 </script>
 <style rel="stylesheet/css">
