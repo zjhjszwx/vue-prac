@@ -1,8 +1,6 @@
 <template lang="">
   <div>
-    <Avatar>USER</Avatar>
-    <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" />
-    <Avatar style="color: #f56a00;background-color: #fde3cf">U</Avatar>
+    <Hoc></Hoc>
   </div>
 </template>
 <script>
@@ -11,15 +9,16 @@ import myButton from "./button/index";
 import compA from "./findComp/compA";
 import recursionComp from "./tree/recursion";
 import dynamicComp from "./tree/dynamicComp/index";
-import TreeComp from './tree/index'
-import testComp from './test/a'
-import tableComp from './table/index'
-import testNexttick from './test/nextTick'
-import InputNumber from './inputNumber/index'
-import Breadcrumb from './breadcrumb/index'
+import TreeComp from "./tree/index";
+import testComp from "./test/a";
+import tableComp from "./table/index";
+import testNexttick from "./test/nextTick";
+import InputNumber from "./inputNumber/index";
+import Breadcrumb from "./breadcrumb/index";
 const BreadcrumbItem = Breadcrumb.Item;
-import Drawer from './drawer/drawer'
-import Avatar from './avatar'
+import Drawer from "./drawer/drawer";
+import Avatar from "./avatar";
+import Hoc from "../../components/hoc/test";
 
 export default {
   components: {
@@ -36,20 +35,21 @@ export default {
     Breadcrumb,
     BreadcrumbItem,
     Drawer,
-    Avatar
+    Avatar,
+    Hoc,
   },
   data() {
     return {
-      visible: false
-    }
+      visible: false,
+    };
   },
   methods: {
     handleAlert() {
       this.$Alert.info({
-        content: "我是提示框"
+        content: "我是提示框",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang=""></style>
