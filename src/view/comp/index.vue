@@ -1,6 +1,5 @@
 <template lang="">
   <div>
-    <custom-form></custom-form>
   </div>
 </template>
 <script>
@@ -19,7 +18,6 @@ const BreadcrumbItem = Breadcrumb.Item;
 import Drawer from "./drawer/drawer";
 import Avatar from "./avatar";
 import Hoc from "../../components/hoc/test";
-import customForm from '../../components/customForm/index.vue'
 
 export default {
   components: {
@@ -38,7 +36,6 @@ export default {
     Drawer,
     Avatar,
     Hoc,
-    customForm
   },
   data() {
     return {
