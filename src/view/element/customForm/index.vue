@@ -1,5 +1,10 @@
 <template lang="">
-  <el-drawer title="我是标题" :visible.sync="drawer" @close="handleClose">
+  <el-drawer
+    title="我是标题"
+    :visible.sync="drawer"
+    @close="handleClose"
+    :destroy-on-close="true"
+  >
     <div>
       <el-form ref="iform" :model="form" label-width="80px" :rules="rules">
         <el-form-item label="活动名称" prop="x">
@@ -35,16 +40,20 @@ export default {
   props: {
     form: {
       type: Object,
-      default: () => { }
+      default: () => {}
     }
   },
   data() {
     return {
       drawer: false,
       rules: {
-        'x': [{
-          required: true, message: '请输入活动名称', trigger: 'blur'
-        }]
+        x: [
+          {
+            required: true,
+            message: "请输入活动名称",
+            trigger: "blur"
+          }
+        ]
       }
     };
   },
@@ -56,9 +65,18 @@ export default {
     },
     handleClose() {
       this.$refs.iform.resetFields();
-      this.drawer = false
-      console.log('handleClose')
+      this.drawer = false;
+      console.log("handleClose");
     }
+  },
+  created() {
+    console.log("created");
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  updated() {
+    console.log("updated");
   }
 };
 </script>

@@ -1,17 +1,20 @@
 <template lang="">
   <div>
-    index
-    <DataTransfer></DataTransfer>
+    child
+    <Child2 v-bind="$attrs" v-on="$listeners"></Child2>
   </div>
 </template>
 <script>
-import DataTransfer from "./dataTransfer/index.vue";
+import Child2 from "./child2.vue";
 export default {
   components: {
-    DataTransfer
+    Child2
   },
   data() {
     return {};
+  },
+  mounted() {
+    console.log(this);
   }
 };
 </script>
