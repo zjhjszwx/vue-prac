@@ -1,6 +1,7 @@
 <template lang="">
   <div>
     <Child :title="title" @updateInfo="updateInfo"></Child>
+    index: {{ title }}
   </div>
 </template>
 <script>

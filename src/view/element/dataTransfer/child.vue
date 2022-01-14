@@ -2,6 +2,8 @@
   <div>
     child
     <Child2 v-bind="$attrs" v-on="$listeners"></Child2>
+    child: {{ title }}
+    <button @click="handleClick">change title</button>
   </div>
 </template>
 <script>
@@ -10,11 +12,19 @@ export default {
   components: {
     Child2
   },
+  props: {
+    title: Number
+  },
   data() {
     return {};
   },
+  methods: {
+    handleClick() {
+      this.title = 222;
+    }
+  },
   mounted() {
-    console.log(this);
+    console.log(this.title);
   }
 };
 </script>

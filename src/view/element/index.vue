@@ -1,14 +1,16 @@
 <template lang="">
   <div>
     index
-    <DataTransfer></DataTransfer>
+    <CustomForm></CustomForm>
   </div>
 </template>
 <script>
 import DataTransfer from "./dataTransfer/index.vue";
+import CustomForm from "./customForm/page.vue";
 export default {
   components: {
-    DataTransfer
+    DataTransfer,
+    CustomForm
   },
   data() {
     return {};

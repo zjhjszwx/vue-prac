@@ -4,10 +4,11 @@
     :visible.sync="drawer"
     @close="handleClose"
     :destroy-on-close="true"
+    size="50%"
   >
     <div>
       <el-form ref="iform" :model="form" label-width="80px" :rules="rules">
-        <el-form-item label="活动名称" prop="x">
+        <el-form-item label="活动名称" prop="name.x">
           <el-input v-model="form.name.x"></el-input>
         </el-form-item>
         <!-- <el-form-item label="活动区域" prop="region">
@@ -23,6 +24,8 @@
             :company="'value2'"
           ></Iswitch>
         </el-form-item>
+        <DyncForm :fieldArray="fieldArray" :fieldObj="form"></DyncForm>
+
         <el-form-item>
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
           <el-button @click="handleClose">取消</el-button>
@@ -33,9 +36,12 @@
 </template>
 <script>
 import Iswitch from "./iswitch.vue";
+import formData from "./form.js";
+import DyncForm from "./dyncForm.vue";
 export default {
   components: {
-    Iswitch
+    Iswitch,
+    DyncForm
   },
   props: {
     form: {
@@ -47,14 +53,22 @@ export default {
     return {
       drawer: false,
       rules: {
-        x: [
+        "name.x": [
           {
             required: true,
             message: "请输入活动名称",
             trigger: "blur"
           }
+        ],
+        姓名: [
+          {
+            required: true,
+            message: "请输入",
+            trigger: "blur"
+          }
         ]
-      }
+      },
+      fieldArray: [] // 表单字段集合
     };
   },
   methods: {
@@ -67,16 +81,28 @@ export default {
       this.$refs.iform.resetFields();
       this.drawer = false;
       console.log("handleClose");
+    },
+    getFieldData() {
+      // 获取动态表单数据
+      this.fieldArray = formData.data;
+      for (let i = 0; i < formData.length; i++) {
+        let item = formData[i];
+        if (item.htmlElements === "复选框") {
+          this.$set(this.form, item.showName, []);
+        } else {
+          this.$set(this.form, item.showName, item.showValue);
+        }
+      }
     }
   },
-  created() {
-    console.log("created");
-  },
+
+  created() {},
   mounted() {
     console.log("mounted");
-  },
-  updated() {
-    console.log("updated");
+    this.getFieldData();
+    setTimeout(() => {
+      console.log(this.fieldArray, this.fieldObj);
+    }, 500);
   }
 };
 </script>
