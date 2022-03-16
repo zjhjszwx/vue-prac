@@ -1,35 +1,36 @@
 <template>
   <div>
-    <div v-if="error">failed to load data!</div>
-    <div v-else-if="loading">loading...</div>
-    <div v-else>result: {{ result }}</div>
+    <HocView></HocView>
   </div>
 </template>
 
 <script>
 /* eslint-disable prettier/prettier */
+import View from './view.vue'
+import {wrapperPromise} from './hoc.js'
+
+const fn = (params) => {
+  return new Promise(rs => {
+    setTimeout(() => {
+      rs({
+        ...params,
+        status: 200,
+      })
+    },1000)
+  })
+}
+
+const HocView = wrapperPromise(View, fn)
 export default {
   data() {
     return {
-      result: {
-        status: 200,
-      },
-      loading: false,
-      error: false,
+
     };
   },
-  async created() {
-    try {
-      this.loading = true;
-      const data = await this.getData();
-      console.log(data);
-      this.result = data;
-    } catch (e) {
-      this.error = true;
-    } finally {
-      this.loading = false;
-    }
+  components: {
+    HocView,
   },
+
   methods: {
     getData() {
       return this.$http({

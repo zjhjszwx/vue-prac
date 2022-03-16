@@ -1,5 +1,6 @@
 <template lang="">
   <div>
+    <hoc></hoc>
   </div>
 </template>
 <script>

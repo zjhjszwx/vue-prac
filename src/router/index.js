@@ -11,9 +11,6 @@ import Home from '../view/project/home/home.vue'
 import Product from '../view/project/home/product/product'
 import ProductList from '../view/project/home/product/productList'
 
-
-
-
 Vue.use(Router)
 
 export default new Router({
