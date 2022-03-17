@@ -4,6 +4,7 @@ import PostList from '../cnode/PostList.vue'
 import UserInfo from '../cnode/UserInfo.vue'
 import Chart from '../view/echart/index'
 import Comp from '../view/comp/index'
+import Vuebase from '../view/Vuebase/index'
 import Element from '../view/element/index'
 import Avue from '../view/Avue/index'
 import Project from '../view/project/index'
@@ -43,6 +44,13 @@ export default new Router({
       name: 'comp',
       components: {
         main: Comp
+      }
+    },
+    {
+      path: '/vue',
+      name: 'vue',
+      components: {
+        main: Vuebase
       }
     },
     {
