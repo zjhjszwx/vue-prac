@@ -1,15 +1,28 @@
 <template>
   <div id="app">
-    <h1>{{`基于Element-UI组件改造的树形选择器`}}:</h1>
-    <!-- 调用树形下拉框组件 -->
-    <!-- 下拉树 -->
-    <SelectTree
-      :options="list"
-      :value="valueId"
-      @getValue="getValue($event)"
-      height="200"
-    ></SelectTree>
-    ID为：{{valueId}}
+    <el-form
+      ref="form"
+      :model="form"
+      label-width="80px"
+      label-position="top"
+      :rules="formRules"
+    >
+      <el-form-item label="账号" prop="name">
+        <SelectTree
+          :options="list"
+          :value="form.valueId"
+          @getValue="($event) => this.form.valueId = $event"
+          height="200"
+        ></SelectTree>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">登录</el-button>
+        <el-button>取消</el-button>
+      </el-form-item>
+    </el-form>
+
+
+    ID为：{{form.valueId}}
   </div>
 </template>
 
@@ -22,7 +35,19 @@ export default {
   },
   data() {
     return {
-      valueId: 1, // 初始ID（可选）
+      formRules: {
+        name: [
+          {
+            required: true,
+            message: "请输入",
+            trigger: "blur"
+          }
+        ]
+      },
+      form: {
+        valueId: 1
+      },
+      // valueId: 1, // 初始ID（可选）
       // 选项列表（必选）
       list: [
         {
@@ -52,6 +77,15 @@ export default {
     getValue(value) {
       this.valueId = value;
       console.log(this.valueId);
+    },
+    onSubmit() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          window.alert("提交成功");
+        } else {
+          window.alert("表单校验失败");
+        }
+      });
     }
   }
 };
