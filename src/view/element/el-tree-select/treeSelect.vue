@@ -95,7 +95,7 @@ export default {
     handleNodeClick(node){
       this.valueTitle = node[this.props.label]
       this.valueId = node[this.props.value]
-      this.$emit('getValue',this.valueId)
+      this.$emit('input',this.valueId)
       this.defaultExpandedKey = []
       if(!node.children || !node.children.length) { //补录选择完选项弹框不能收起
         this.$refs.treeSelect.blur()
