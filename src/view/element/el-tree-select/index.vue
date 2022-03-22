@@ -85,7 +85,7 @@ export default {
 
   },
   methods: {
-    // 传入校验
+    // 1. form校验, 自定义组件需要传入校验
     validateField(e) {
       this.$refs.form.validateField(e)
     },

@@ -1,13 +1,24 @@
 <template lang="">
-  <div>
-
+  <div :style="dashbox.style" class="dashbox" @contextmenu="showContextMenu">
+    {{dashbox.content}}
   </div>
 </template>
 <script>
 export default {
-
+  props: {
+    dashbox: Object
+  },
+  methods: {
+    showContextMenu(e) {
+      console.log(e)
+      this.$emit('show-contextmenu', e)
+    }
+  }
 }
 </script>
-<style lang="">
-
+<style lang="scss" scoped>
+.dashbox {
+  position: absolute;
+  background-color: aliceblue;
+}
 </style>

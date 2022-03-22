@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <hoc></hoc>
+    <ContextMenu></ContextMenu>
   </div>
 </template>
 <script>
@@ -19,6 +19,7 @@ const BreadcrumbItem = Breadcrumb.Item;
 import Drawer from "./drawer/drawer";
 import Avatar from "./avatar";
 import Hoc from "../../components/hoc/test";
+import ContextMenu from './ContextMenu'
 
 export default {
   components: {
@@ -37,6 +38,7 @@ export default {
     Drawer,
     Avatar,
     Hoc,
+    ContextMenu
   },
   data() {
     return {
