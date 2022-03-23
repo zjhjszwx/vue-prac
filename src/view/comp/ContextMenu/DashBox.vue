@@ -10,7 +10,6 @@ export default {
   },
   methods: {
     showContextMenu(e) {
-      console.log(e)
       this.$emit('show-contextmenu', e)
     }
   }

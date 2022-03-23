@@ -7,10 +7,12 @@
       @show-contextmenu="showContextMenu"
     >
     </Dashbox>
-    <ContextMenu :show="contextMenuVisible">
-      <div>复制</div>
-      <div>粘贴</div>
-      <div>剪切</div>
+    <ContextMenu :show="contextMenuVisible" :offset="contextMenuOffset" @update:show="e => contextMenuVisible = e">
+      <div style="background: #aaa">
+        <div>复制</div>
+        <div>粘贴</div>
+        <div>剪切</div>
+      </div>
     </ContextMenu>
   </div>
 </template>
@@ -22,7 +24,6 @@ export default {
   components: {
     ContextMenu,
     Dashbox,
-
   },
   data() {
     return {
@@ -38,13 +39,21 @@ export default {
           style: "left:400px;top:400px;width:100px;height:100px",
           content: "test2"
         }
-      ]
+      ],
+      contextMenuOffset: {
+        left: 0,
+        top: 0
+      }
     };
   },
   methods: {
     showContextMenu(e) {
       e.preventDefault();
       this.contextMenuVisible = true;
+      this.contextMenuOffset = {
+        left: e.clientX,
+        top: e.clientY
+      }
     }
   }
 };
