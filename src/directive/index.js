@@ -1,6 +1,8 @@
 import copy from './copy'
+import debounce from './debounce'
 const directives = {
-  copy
+  copy,
+  debounce
 }
 
 export default {
