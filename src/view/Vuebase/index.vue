@@ -1,13 +1,15 @@
 <template lang="">
   <div>
-    <Fade></Fade>
+    <Directive></Directive>
   </div>
 </template>
 <script>
 import Fade from './fade'
+import Directive from './directive'
 export default {
   components: {
-    Fade
+    Fade,
+    Directive
   }
 }
 </script>

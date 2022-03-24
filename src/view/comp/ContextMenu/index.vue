@@ -48,8 +48,10 @@ export default {
   },
   methods: {
     showContextMenu(e) {
+      console.log(e)
       e.preventDefault();
       this.contextMenuVisible = true;
+      // clientY 距离浏览器的宽度, pageY 实际宽度
       this.contextMenuOffset = {
         left: e.clientX,
         top: e.clientY
@@ -58,4 +60,9 @@ export default {
   }
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+.home {
+  height: 1000px;
+  overflow: auto;
+}
+</style>

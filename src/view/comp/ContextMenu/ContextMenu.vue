@@ -1,7 +1,9 @@
 <template lang="">
-  <div class="context-menu" v-show="show" :style="style" @mousedown.stop @contextmenu.prevent>
-    <slot></slot>
-  </div>
+    <transition name="context-menu">
+      <div class="context-menu" v-show="show" :style="style" @mousedown.stop @contextmenu.prevent>
+            <slot></slot>
+      </div>
+    </transition>
 </template>
 <script>
 export default {
@@ -42,6 +44,8 @@ export default {
   },
   mounted() {
     // 以body为父元素
+    // 一般情况parentNode可以取代parentElement的所有功能
+    // this.$el.parentNode.appendChild(this.$el)
     document.body.appendChild(this.$el)
 
     // 添加事件
@@ -66,10 +70,20 @@ export default {
       let docWidth = document.documentElement.clientWidth
       let menuHeight = this.$el.getBoundingClientRect().height
       let menuWidth = this.$el.getBoundingClientRect().width
+      let y = 0;
+      let x = 0;
+      if ((this.offset.top + menuHeight) > docHeight) {
+        y = menuHeight
+      }
+      if ((this.offset.left + menuWidth) > docWidth) {
+        y = menuWidth
+      }
+      // console.log(docHeight)
 
-      console.log(docHeight, menuHeight)
-
-
+      this.style = {
+        left: `${this.offset.left - x}px`,
+        top: `${this.offset.top - y}px`
+      }
     }
   }
 }
@@ -78,6 +92,16 @@ export default {
 .context-menu {
   z-index: 1000;
   display: block;
-  position: absolute;
+  position: fixed;
+  // position: absolute;
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.5s;
+  }
+
 }
 </style>

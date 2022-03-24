@@ -12,6 +12,8 @@ import Alert from './view/comp/alert/alert.js'
 import './styles/index.scss';
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
+import Directives from './directive/index.js'
+Vue.use(Directives)
 Vue.use(Avue);
 Vue.use(ElementUI)
 Vue.prototype.$http = axios;
