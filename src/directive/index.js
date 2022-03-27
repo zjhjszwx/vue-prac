@@ -1,8 +1,12 @@
 import copy from './copy'
 import debounce from './debounce'
+import emoji from './emoji'
+import permission from './permission'
 const directives = {
   copy,
-  debounce
+  debounce,
+  emoji,
+  permission
 }
 
 export default {

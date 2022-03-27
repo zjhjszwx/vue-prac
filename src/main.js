@@ -13,9 +13,13 @@ import './styles/index.scss';
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 import Directives from './directive/index.js'
+import Lazyload from './directive/lazyload'
 Vue.use(Directives)
 Vue.use(Avue);
 Vue.use(ElementUI)
+Vue.use(Lazyload, {
+  default: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg'
+})
 Vue.prototype.$http = axios;
 Vue.prototype.$Alert = Alert;
 Vue.config.productionTip = false
