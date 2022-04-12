@@ -11,6 +11,7 @@ import Project from '../view/project/index'
 import Home from '../view/project/home/home.vue'
 import Product from '../view/project/home/product/product'
 import ProductList from '../view/project/home/product/productList'
+import Workflow from '../view/workflow/index'
 
 Vue.use(Router)
 
@@ -79,6 +80,13 @@ export default new Router({
       name: 'home',
       components: {
         main: Home
+      },
+    },
+    {
+      path: '/workflow',
+      name: 'workflow',
+      components: {
+        main: Workflow
       },
     },
     {
